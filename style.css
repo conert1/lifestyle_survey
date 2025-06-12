@@ -1,0 +1,79 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  /* background-color: #f2f2f2; */
+  /* border-bottom: 2px solid #ddd; */
+  margin-bottom: 5%;
+}
+
+header p {
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+header #nav-links {
+  display: flex;
+  gap: 60px; /* adjust this to control spacing between the links */
+}
+
+header a {
+  text-decoration: none;
+  color: #0077cc;
+}
+
+header a:hover {
+  text-decoration: underline;
+}
+
+
+/* #personal_#personal_details {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+} */
+
+/* #personal_details > span {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 15px;
+  font-size: 18px;
+} */
+
+#personal_details{
+    margin-top: -2%;
+    /* background-color: #0077cc; */
+    margin-bottom: 5%;
+}
+#personal_detailss{
+    margin-left: 3%;
+}
+
+#name,
+#mail,
+#data_of_birth,
+#contact_number {
+  display: flex;
+  flex-direction: column;
+  /* margin-bottom: 10px; */
+  margin-left: 30%;
+  /* mar */
+}
+
+#name p,
+#mail p,
+#data_of_birth p,
+#contact_number p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+#full_name,
+#email,
+#DOB,
+#phone_number {
+  padding: 4px 6px;
+  font-size: 13px;
+  width: 220px;
+}
