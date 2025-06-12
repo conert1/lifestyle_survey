@@ -40,7 +40,7 @@
 
 
     <div id="favourite_food">
-        <div id="fav">what is your favorite food</div>
+        <div id="fav">what is your favorite food?</div>
         <div id="food">
         <label>Pizza <input type="checkbox" name="food" value="Pizza" id="pizza"></label>
             <label>Pasta <input type="checkbox" name="food" value="Pasta" id="pasta"></label>
@@ -75,10 +75,9 @@ function getSelectedFoods() {
   // You can store `selected` in a variable or send it to a server, etc.
 }
 </script> -->
-
+<!-- 
     <div id="rating_table">
         <p>Please rate your level of agreement on a scale from 1 to 5, with 1 being "strongly agree" and 5 being "strongly disagree"</p>
-        <!-- <textarea name="table" id="table" cols="7" rows="6"></textarea> -->
     <table>
   <tr>
     <th></th>
@@ -95,8 +94,8 @@ function getSelectedFoods() {
     <td><input type="radio" name="neutral" id="neutral"></td>
     <td><input type="radio" name="disagree" id="disagree"></td>
     <td><input type="radio" name="strongly_disagree" id="strongly_disagree"></td>
-  </tr>
-  <tr>
+  </tr> -->
+  <!-- <tr>
     <td>Do I like listening to radio</td>
     <td><input type="radio" name="strongly_agree" id="strongly_agree"></td>
     <td><input type="radio" name="agree" id="agree"></td>
@@ -121,9 +120,64 @@ function getSelectedFoods() {
     <td><input type="radio" name="strongly_disagree" id="strongly_disagree"></td>
   </tr>
 </table>
+    </div> -->
 
+
+
+
+
+    <div id="rating_table">
+  <p>
+    Please rate your level of agreement on a scale from 1 to 5, with 1 being
+    "strongly agree" and 5 being "strongly disagree"
+  </p>
+  <table>
+    <tr>
+      <th></th>
+      <th>Strongly Agree</th>
+      <th>Agree</th>
+      <th>Neutral</th>
+      <th>Disagree</th>
+      <th>Strongly Disagree</th>
+    </tr>
+    <tr>
+      <td>Do I like to watch movies</td>
+      <td><input type="radio" name="movies" value="1" /></td>
+      <td><input type="radio" name="movies" value="2" /></td>
+      <td><input type="radio" name="movies" value="3" /></td>
+      <td><input type="radio" name="movies" value="4" /></td>
+      <td><input type="radio" name="movies" value="5" /></td>
+    </tr>
+    <tr>
+      <td>Do I like listening to radio</td>
+      <td><input type="radio" name="radio" value="1" /></td>
+      <td><input type="radio" name="radio" value="2" /></td>
+      <td><input type="radio" name="radio" value="3" /></td>
+      <td><input type="radio" name="radio" value="4" /></td>
+      <td><input type="radio" name="radio" value="5" /></td>
+    </tr>
+    <tr>
+      <td>Do I like to eat out</td>
+      <td><input type="radio" name="take_out" value="1" /></td>
+      <td><input type="radio" name="take_out" value="2" /></td>
+      <td><input type="radio" name="take_out" value="3" /></td>
+      <td><input type="radio" name="take_out" value="4" /></td>
+      <td><input type="radio" name="take_out" value="5" /></td>
+    </tr>
+    <tr>
+      <td>Do I like to watch TV</td>
+      <td><input type="radio" name="tv" value="1" /></td>
+      <td><input type="radio" name="tv" value="2" /></td>
+      <td><input type="radio" name="tv" value="3" /></td>
+      <td><input type="radio" name="tv" value="4" /></td>
+      <td><input type="radio" name="tv" value="5" /></td>
+    </tr>
+  </table>
+
+  
+</div>
 <button type="submit" id="submit">SUBMIT</button>
-    </div>
+
 
 
     <script src="index.js"></script>

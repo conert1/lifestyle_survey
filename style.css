@@ -1,3 +1,10 @@
+
+* {
+  border-color: lightblue !important;
+  outline-color: lightblue !important;
+  box-shadow: none;
+}
+
 header {
   display: flex;
   justify-content: space-between;
@@ -76,4 +83,69 @@ header a:hover {
   padding: 4px 6px;
   font-size: 13px;
   width: 220px;
+}
+
+#fav{
+
+}
+
+#food{
+    margin-left: 30%;
+    margin-top: -2%;
+    
+}
+
+#favorite_food{
+    margin-top: 5%;
+}
+
+#food label {
+  display: inline-block;
+  margin-right: 30px; /* or any space you want */
+}
+
+#rating_table{
+    margin-top: 6%;
+}
+
+
+
+#rating_table table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+#rating_table th,
+#rating_table td {
+  border: 1px solid #ccc;
+  text-align: center;
+  padding: 8px;
+}
+
+#rating_table td input[type="radio"] {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+
+table tr:first-child {
+  background-color: lightgray;
+    border: 1px solid #0c0a0a;
+
+}
+
+#rating_table table tr:first-child th {
+  border: 1px solid black;
+}
+
+#submit{
+    background-color: rgb(58, 167, 230);
+    margin-left: 44%;
+    margin-top: 4%;
+    width: 10%;
+    height: 50px;
+}
+table tr:first-child th {
+  border: 1px solid black !important;
 }
