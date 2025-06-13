@@ -1,3 +1,9 @@
+  // import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-analytics.js";
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+
+
 document.getElementById('submit').addEventListener('click', () => {
   getSelectedFoods();
 });
@@ -24,11 +30,9 @@ function getSelectedFoods() {
     let eatOut = results.take_out
     let tv = results.tv
 
-    //  alert(`name: ${document.getElementById("full_name").value}
-    //     <br>movies  ${results.movies}   radio   ${results.radio}    tv    ${results.tv}     eat out    ${results.take_out}<br> your favorite food is ${selected}`)
+        // sendData(name, email, phone_number, dateOfBirth, favoriteFood, movies, radio, eatOut, tv)
 
-        sendData(name, email, phone_number, dateOfBirth, favoriteFood, movies, radio, eatOut, tv)
-
+        retrieveData()
       }
 
 
@@ -40,7 +44,6 @@ function getSelectedFoods() {
     document.getElementById('phone_number'),
   ];
 
-  // Optional: add checkboxes and radio group validation if needed
   function allFieldsFilled() {
     return requiredInputs.every(input => input.value.trim() !== '');
   }
@@ -49,16 +52,77 @@ function getSelectedFoods() {
     submitBtn.disabled = !allFieldsFilled();
   }
 
-  // Add event listeners to each input
   requiredInputs.forEach(input => {
     input.addEventListener('input', toggleSubmitButton);
   });
 
-  // Initial check
   toggleSubmitButton();
 
 
-function sendData(name, email, phone_number, dateOfBirth, favoriteFood, movies, radio, eatOut, tv){
-  alert(`${favoriteFood, name, email, phone_number, dateOfBirth, favoriteFood, movies, radio}  and ${favoriteFood}`)
 
-}
+
+
+
+  // Your Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyDC6QxfA2yUYzDKxXoc7cJ2xzy-qsG2tR0",
+  authDomain: "lifestyle-survey-3df67.firebaseapp.com",
+  projectId: "lifestyle-survey-3df67",
+  storageBucket: "lifestyle-survey-3df67.firebasestorage.app",
+  messagingSenderId: "994050115126",
+  appId: "1:994050115126:web:747c78ea2ddb81fd343a97"
+};
+
+// Initialize Firebase
+// firebase.initializeApp(firebaseConfig);
+
+// Initialize Firestore
+// const db = firebase.firestore();
+
+
+
+
+// function sendData(name, email, phone_number, dateOfBirth, favoriteFood, movies, radio, eatOut, tv) {
+//   db.collection("users").add({
+//     name: name,
+//     email: email,
+//     phone_number: phone_number,
+//     dateOfBirth: dateOfBirth,
+//     favoriteFood: favoriteFood,
+//     movies: movies,
+//     radio: radio,
+//     eatOut: eatOut,
+//     tv: tv
+//   })
+//   .then(() => {
+//     alert("Data saved successfully!");
+//   })
+//   .catch(error => {
+//     console.error("Error writing document: ", error);
+//     alert("Error saving data.");
+//   });
+// }
+
+
+
+
+ const app = initializeApp(firebaseConfig);
+
+    // ✅ Initialize Firestore
+    const db = getFirestore(app);
+
+    // ✅ Retrieve Data
+    async function retrieveData() {
+      try {
+        const querySnapshot = await getDocs(collection(db, "users"));
+        querySnapshot.forEach((doc) => {
+          console.log("ID:", doc.id, "Data:", doc.data());
+          console.log(doc.data().movies)
+        });
+      } catch (error) {
+        console.error("Error retrieving data: ", error);
+      }
+    }
+
+
+
