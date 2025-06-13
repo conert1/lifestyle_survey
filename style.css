@@ -149,3 +149,9 @@ table tr:first-child {
 table tr:first-child th {
   border: 1px solid black !important;
 }
+
+
+
+#heading{
+  text-align: center;
+}

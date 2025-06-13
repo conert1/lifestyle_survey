@@ -9,11 +9,9 @@
 
 <header>
     <p><b>_Surveys</b></p>
-    <!-- <a href="reloads">Fill out survey</a>
-    <a href="results_page">View survey results</a> -->
     <div id="nav-links">
-    <a href="reloads">Fill out survey</a>
-    <a href="results_page">View survey results</a>
+    <a href="#">Fill out survey</a>
+    <a href="./view_data.html">View survey results</a>
   </div>
 </header>
 
@@ -22,19 +20,19 @@
     <div id="personal_details">
     <div id="name">
         <p>Name</p>
-        <input type="text" name="full_name" id="full_name">
+        <input type="text" name="full_name" id="full_name" required>
     </div>
     <div id="mail">
         <p>Email</p>
-        <input type="email" name="email" id="email">
+        <input type="email" name="email" id="email" required>
     </div>
     <div id="data_of_birth">
         <p>Date of birth</p>
-        <input type="date" name="DOB" id="DOB">
+        <input type="date" name="DOB" id="DOB" required>
     </div>
     <div id="contact_number">
         <p>Contact number</p>
-        <input type="tel" name="phone_number" id="phone_number">
+        <input type="tel" name="phone_number" id="phone_number" required>
     </div>
 </div>
 
@@ -47,83 +45,7 @@
         <label >Pap and Wors <input type="checkbox" name="food" value="pap and wors" id="pap_and_wors"> </label>
         <label>Other <input type="checkbox" name="food" value="Other" id="other"></label>
         </div>
-        <!-- <button onclick="getSelectedFoods()">Submit</button> -->
-
     </div>
-
-    <!-- <div id="favourite_food">
-  <p>What is your favorite food</p>
-  <label>
-    Pizza <input type="checkbox" name="food" value="Pizza" id="pizza" checked>
-  </label>
-  <label>
-    Pasta <input type="checkbox" name="food" value="Pasta" id="pasta">
-  </label>
-  <label>
-    Pap and Wors <input type="checkbox" name="food" value="Pap and Wors" id="pap_and_wors">
-  </label>
-  <br><br>
-  <button onclick="getSelectedFoods()">Submit</button>
-</div> -->
-
-<!-- <script>
-function getSelectedFoods() {
-  const checkboxes = document.querySelectorAll('input[name="food"]:checked');
-  const selected = Array.from(checkboxes).map(cb => cb.value);
-  console.log("Selected foods:", selected);
-  alert(`You selected ${selected}`)
-  // You can store `selected` in a variable or send it to a server, etc.
-}
-</script> -->
-<!-- 
-    <div id="rating_table">
-        <p>Please rate your level of agreement on a scale from 1 to 5, with 1 being "strongly agree" and 5 being "strongly disagree"</p>
-    <table>
-  <tr>
-    <th></th>
-    <th>Strongly Agree</th>
-    <th>Agree</th>
-    <th>Neutral</th>
-    <th>Disagree</th>
-    <th>Strongly Disagree</th>
-  </tr>
-  <tr>
-    <td>Do I like to watch movies</td>
-    <td><input type="radio" name="strongly_agree" id="strongly_agree"></td>
-    <td><input type="radio" name="agree" id="agree"></td>
-    <td><input type="radio" name="neutral" id="neutral"></td>
-    <td><input type="radio" name="disagree" id="disagree"></td>
-    <td><input type="radio" name="strongly_disagree" id="strongly_disagree"></td>
-  </tr> -->
-  <!-- <tr>
-    <td>Do I like listening to radio</td>
-    <td><input type="radio" name="strongly_agree" id="strongly_agree"></td>
-    <td><input type="radio" name="agree" id="agree"></td>
-    <td><input type="radio" name="neutral" id="neutral"></td>
-    <td><input type="radio" name="disagree" id="disagree"></td>
-    <td><input type="radio" name="strongly_disagree" id="strongly_disagree"></td>
-  </tr>
-  <tr>
-    <td>Do I like to eat out</td>
-    <td><input type="radio" name="strongly_agree" id="strongly_agree"></td>
-    <td><input type="radio" name="agree" id="agree"></td>
-    <td><input type="radio" name="neutral" id="neutral"></td>
-    <td><input type="radio" name="disagree" id="disagree"></td>
-    <td><input type="radio" name="strongly_disagree" id="strongly_disagree"></td>
-  </tr>
-  <tr>
-    <td>Do I like to watch TV</td>
-    <td><input type="radio" name="strongly_agree" id="strongly_agree"></td>
-    <td><input type="radio" name="agree" id="agree"></td>
-    <td><input type="radio" name="neutral" id="neutral"></td>
-    <td><input type="radio" name="disagree" id="disagree"></td>
-    <td><input type="radio" name="strongly_disagree" id="strongly_disagree"></td>
-  </tr>
-</table>
-    </div> -->
-
-
-
 
 
     <div id="rating_table">
@@ -174,11 +96,8 @@ function getSelectedFoods() {
     </tr>
   </table>
 
-  
 </div>
 <button type="submit" id="submit">SUBMIT</button>
-
-
 
     <script src="index.js"></script>
 
