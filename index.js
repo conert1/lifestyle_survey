@@ -14,9 +14,22 @@ function getSelectedFoods() {
       results[question] = selected ? selected.value : "Not selected";
     });
 
-     alert(`name: ${document.getElementById("full_name").value}
-        <br>movies  ${results.movies}   radio   ${results.radio}    tv    ${results.tv}     eat out    ${results.take_out}<br> your favorite food is ${selected}`)
-}
+    let name = document.getElementById("full_name").value
+    let email = document.getElementById("email").value
+    let phone_number = document.getElementById("phone_number").value
+    let dateOfBirth = document.getElementById("DOB").value
+    let favoriteFood = selected
+    let movies = results.movies
+    let radio = results.radio
+    let eatOut = results.take_out
+    let tv = results.tv
+
+    //  alert(`name: ${document.getElementById("full_name").value}
+    //     <br>movies  ${results.movies}   radio   ${results.radio}    tv    ${results.tv}     eat out    ${results.take_out}<br> your favorite food is ${selected}`)
+
+        sendData(name, email, phone_number, dateOfBirth, favoriteFood, movies, radio, eatOut, tv)
+
+      }
 
 
   const submitBtn = document.getElementById('submit');
@@ -43,3 +56,9 @@ function getSelectedFoods() {
 
   // Initial check
   toggleSubmitButton();
+
+
+function sendData(name, email, phone_number, dateOfBirth, favoriteFood, movies, radio, eatOut, tv){
+  alert(`${favoriteFood, name, email, phone_number, dateOfBirth, favoriteFood, movies, radio}  and ${favoriteFood}`)
+
+}

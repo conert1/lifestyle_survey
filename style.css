@@ -155,3 +155,36 @@ table tr:first-child th {
 #heading{
   text-align: center;
 }
+
+#survey_details{
+  margin-top: 2%;
+}
+
+#food_lovers{
+  margin-top: 5%;
+}
+
+#hobbies{
+  margin-top: 5%;
+}
+
+#survey_no,
+#age,
+#oldest,
+#youngest{
+  margin-top: 2%;
+}
+
+#love_pizza,
+#love_pasta,
+#love_pap,
+#love_wors{
+  margin-top: 2%;
+}
+
+#watch_movies,
+#listen_to_radio,
+#eat_out,
+#watch_tv{
+  margin-top: 2%;
+}
