@@ -30,9 +30,9 @@ function getSelectedFoods() {
     let eatOut = results.take_out
     let tv = results.tv
 
-        // sendData(name, email, phone_number, dateOfBirth, favoriteFood, movies, radio, eatOut, tv)
+        sendData(name, email, phone_number, dateOfBirth, favoriteFood, movies, radio, eatOut, tv)
 
-        retrieveData()
+        // retrieveData()
         // retrieveData()
       }
 

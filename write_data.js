@@ -13,6 +13,9 @@ async function displayData(){
   let tv
 
     let jsonFile = await retrieveData()
+    
+
+    oldest = highestAge(jsonFile)
         const size = jsonFile.length;
     console.log(jsonFile.size)
 
@@ -26,8 +29,8 @@ async function displayData(){
     youngest = jsonFile.dateOfBirth
   });
       document.getElementById("youngest").innerHTML = `it ifdss ${youngest}`
-      document.getElementById("survey_no").innerHTML = `Total number of surveys  ${size}`
-      document.getElementById("lll").innerHTML = ` ${size}`
+      document.getElementById("survey_no").innerHTML = `ffffff${size}`
+      // document.getElementById("sure").innerHTML = ` ${size}`
 
 
 
@@ -64,3 +67,19 @@ async function displayData(){
   });
 }
 displayEmails()
+
+function highestAge(jsonFile){
+  let highestAge = null;
+
+    jsonFile.forEach((doc) => {
+      const data = doc.dateOfBirth;
+      const age = parseInt(data.dateOfBirth);
+
+      if (!isNaN(age)) {
+        if (highestAge === null || age > highestAge) {
+          highestAge = age;
+        }
+      }
+    });
+    return highestAge
+}
