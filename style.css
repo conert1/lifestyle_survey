@@ -156,9 +156,10 @@ table tr:first-child th {
   text-align: center;
 }
 
-#survey_details{
-  margin-top: 2%;
-}
+/* #survey_details{
+ 
+  margin-top: 12%;
+} */
 
 #food_lovers{
   margin-top: 5%;
@@ -168,23 +169,63 @@ table tr:first-child th {
   margin-top: 5%;
 }
 
-#survey_no,
+/* #survey_no,
 #age,
 #oldest,
 #youngest{
   margin-top: 2%;
-}
+} */
 
-#love_pizza,
+/* #love_pizza,
 #love_pasta,
 #love_pap,
 #love_wors{
   margin-top: 2%;
-}
+} */
 
-#watch_movies,
+/* #watch_movies,
 #listen_to_radio,
 #eat_out,
 #watch_tv{
   margin-top: 2%;
+} */
+
+/* #survey_no,
+#oldest,
+#youngest,
+#age{
+  padding-left: 50%;
+} */
+
+/* #survey_details{
+  background-color: olive;
+  margin-top: 90%;
+  padding-left: 40%;
+} */
+
+
+.survey-table {
+  width: 70%;
+  margin-left: 15%;
+  max-width: 800px;
+  /* border-collapse: collapse; */
+  /* background-color: #fff; */
+  /* box-shadow: 0 0 10px rgba(0,0,0,0.1); */
+  /* font-family: Arial, sans-serif; */
+}
+
+.survey-table td,
+.survey-table th {
+  padding: 12px 40px;
+  text-align: left;
+  /* border-bottom: 1px solid #ddd; */
+}
+
+.survey-table span {
+  /* font-weight: bold; */
+  display: inline-block;
+  min-width: 100px;
+}
+.survey-table tr:first-child {
+  background-color: transparent !important;
 }
