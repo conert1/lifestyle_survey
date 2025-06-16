@@ -6,6 +6,7 @@ async function displayData(){
   let oldest
   let average
   let favorite
+  let hobbies
   let pizza
   let pasta
   let wors
@@ -21,7 +22,7 @@ const size = jsonFile.length;
     youngest = lowestAge(jsonFile)
     average = averageAge(jsonFile)
     favorite = favoriteFood(jsonFile, size)
-    
+    hobbies = averageHobbiesRating(jsonFile, size)
     console.log(jsonFile.size)
 
     document.getElementById("age").innerHTML = `${average}`
@@ -31,6 +32,13 @@ const size = jsonFile.length;
     document.getElementById("love_pizza").innerHTML = `${favorite[0]}`
     document.getElementById("love_pasta").innerHTML = `${favorite[1]}`
     document.getElementById("love_pap").innerHTML = `${favorite[2]}`
+
+
+    document.getElementById("watch_movies").innerHTML = `${hobbies[0]}`
+    document.getElementById("listen_to_radio").innerHTML = `${hobbies[1]}`
+    document.getElementById("eat_out").innerHTML = `${hobbies[2]}`
+    document.getElementById("watch_tv").innerHTML = `${hobbies[3]}`
+
 
 
     jsonFile.forEach((jsonFile) => {
@@ -158,7 +166,7 @@ function averageAge(jsonFile){
     sum+=list[i]
   }
   averageCount = sum/list.length
-console.log("lowest   " + averageCount)
+// console.log("lowest   " + averageCount)
   return averageCount;
 }
 
@@ -192,7 +200,38 @@ function favoriteFood(jsonFile, size) {
   pizzaPercentage = ((pizzaNo*100)/size)
   pastaPercentage = ((pastaNo*100)/size)
   worsPercentage = ((worsNo*100)/size)
-console.log(`pizza is ${pizzaPercentage}  pasta is ${pastaPercentage}  wors is ${worsPercentage}`)
+// console.log(`pizza is ${pizzaPercentage}  pasta is ${pastaPercentage}  wors is ${worsPercentage}`)
 
   return [pizzaPercentage, pastaPercentage, worsPercentage];
+}
+
+
+function averageHobbiesRating(jsonFile, size){
+  let lowestAge = null;
+  let favTv = []
+  let favRadio =[]
+  let favMovies = []
+  let favEatOut = []
+  let sumTV=0
+  let sumRadio=0
+  let sumMovies=0
+  let sumEatout=0
+
+  jsonFile.forEach((doc) => {
+    favTv.push(doc.tv)
+    favRadio.push(doc.radio)
+    favEatOut.push(doc.eatOut)
+    favMovies.push(doc.movies)
+  });
+  for(let i=0; i<size; i++){
+    sumTV+=Number(favTv[i])
+    sumRadio+=Number(favRadio[i])
+    sumEatout+=Number(favEatOut[i])
+    sumMovies+=Number(favMovies[i])
+  }
+
+  console.log(`tv  ${sumTV}   radio  ${sumRadio}  eat ${sumEatout}   movies  ${sumMovies}`)
+// console.log("lowest   " + lowestAge)
+
+  return [(sumMovies/size), (sumRadio/size), (sumEatout/size), (sumTV/size)];
 }
