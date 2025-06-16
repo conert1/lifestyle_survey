@@ -105,7 +105,7 @@ function averageAge(jsonFile){
     sum+=list[i]
   }
   averageCount = sum/list.length
-  return averageCount;
+  return averageCount.toFixed(2);
 }
 
 
@@ -138,7 +138,7 @@ function favoriteFood(jsonFile, size) {
   pizzaPercentage = ((pizzaNo*100)/size)
   pastaPercentage = ((pastaNo*100)/size)
   worsPercentage = ((worsNo*100)/size)
-  return [pizzaPercentage, pastaPercentage, worsPercentage];
+  return [pizzaPercentage.toFixed(2), pastaPercentage.toFixed(2), worsPercentage.toFixed(2)];
 }
 
 
@@ -168,5 +168,5 @@ function averageHobbiesRating(jsonFile, size){
 
   // console.log(`tv  ${sumTV}   radio  ${sumRadio}  eat ${sumEatout}   movies  ${sumMovies}`)
 
-  return [(sumMovies/size), (sumRadio/size), (sumEatout/size), (sumTV/size)];
+  return [(sumMovies/size).toFixed(2), (sumRadio/size).toFixed(2), (sumEatout/size).toFixed(2), (sumTV/size).toFixed(2)];
 }
