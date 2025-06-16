@@ -1,116 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
 
     <!-- Firebase App (Core) -->
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 
-<!-- Firestore -->
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
-
-
-
+    <!-- Firestore -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 
     <title>Document</title>
-</head>
+  </head>
 
-<header>
+  <header>
     <p><b>_Surveys</b></p>
     <div id="nav-links">
-    <a href="#">Fill out survey</a>
-    <a href="./view_data.html">View survey results</a>
-  </div>
-</header>
+      <a href="#">Fill out survey</a>
+      <a href="./view_data.html">View survey results</a>
+    </div>
+  </header>
 
-<body>
-<div id="personal_detailss">Personal Details:</div>
+  <body>
+    <div id="personal_detailss">Personal Details:</div>
     <div id="personal_details">
-    <div id="name">
+      <div id="name">
         <p>Name</p>
-        <input type="text" name="full_name" id="full_name" required>
-    </div>
-    <div id="mail">
+        <input type="text" name="full_name" id="full_name" required />
+      </div>
+      <div id="mail">
         <p>Email</p>
-        <input type="email" name="email" id="email" required>
-    </div>
-    <div id="data_of_birth">
+        <input type="email" name="email" id="email" required />
+      </div>
+      <div id="data_of_birth">
         <p>Date of birth</p>
-        <input type="date" name="DOB" id="DOB" required>
-    </div>
-    <div id="contact_number">
+        <input type="date" name="DOB" id="DOB" required />
+      </div>
+      <div id="contact_number">
         <p>Contact number</p>
-        <input type="tel" name="phone_number" id="phone_number" required>
+        <input type="tel" name="phone_number" id="phone_number" required />
+      </div>
     </div>
-</div>
-
 
     <div id="favourite_food">
-        <div id="fav">what is your favorite food?</div>
-        <div id="food">
-        <label>Pizza <input type="checkbox" name="food" value="Pizza" id="pizza"></label>
-            <label>Pasta <input type="checkbox" name="food" value="Pasta" id="pasta"></label>
-        <label >Pap and Wors <input type="checkbox" name="food" value="pap and wors" id="pap_and_wors"> </label>
-        <label>Other <input type="checkbox" name="food" value="Other" id="other"></label>
-        </div>
+      <div id="fav">what is your favorite food?</div>
+      <div id="food">
+        <label
+          >Pizza <input type="checkbox" name="food" value="Pizza" id="pizza"
+        /></label>
+        <label
+          >Pasta <input type="checkbox" name="food" value="Pasta" id="pasta"
+        /></label>
+        <label
+          >Pap and Wors
+          <input
+            type="checkbox"
+            name="food"
+            value="pap and wors"
+            id="pap_and_wors"
+          />
+        </label>
+        <label
+          >Other <input type="checkbox" name="food" value="Other" id="other"
+        /></label>
+      </div>
     </div>
 
-
     <div id="rating_table">
-  <p>
-    Please rate your level of agreement on a scale from 1 to 5, with 1 being
-    "strongly agree" and 5 being "strongly disagree"
-  </p>
-  <table>
-    <tr>
-      <th></th>
-      <th>Strongly Agree</th>
-      <th>Agree</th>
-      <th>Neutral</th>
-      <th>Disagree</th>
-      <th>Strongly Disagree</th>
-    </tr>
-    <tr>
-      <td>Do I like to watch movies</td>
-      <td><input type="radio" name="movies" value="1" /></td>
-      <td><input type="radio" name="movies" value="2" /></td>
-      <td><input type="radio" name="movies" value="3" /></td>
-      <td><input type="radio" name="movies" value="4" /></td>
-      <td><input type="radio" name="movies" value="5" /></td>
-    </tr>
-    <tr>
-      <td>Do I like listening to radio</td>
-      <td><input type="radio" name="radio" value="1" /></td>
-      <td><input type="radio" name="radio" value="2" /></td>
-      <td><input type="radio" name="radio" value="3" /></td>
-      <td><input type="radio" name="radio" value="4" /></td>
-      <td><input type="radio" name="radio" value="5" /></td>
-    </tr>
-    <tr>
-      <td>Do I like to eat out</td>
-      <td><input type="radio" name="take_out" value="1" /></td>
-      <td><input type="radio" name="take_out" value="2" /></td>
-      <td><input type="radio" name="take_out" value="3" /></td>
-      <td><input type="radio" name="take_out" value="4" /></td>
-      <td><input type="radio" name="take_out" value="5" /></td>
-    </tr>
-    <tr>
-      <td>Do I like to watch TV</td>
-      <td><input type="radio" name="tv" value="1" /></td>
-      <td><input type="radio" name="tv" value="2" /></td>
-      <td><input type="radio" name="tv" value="3" /></td>
-      <td><input type="radio" name="tv" value="4" /></td>
-      <td><input type="radio" name="tv" value="5" /></td>
-    </tr>
-  </table>
-
-</div>
-<button type="submit" id="submit">SUBMIT</button>
+      <p>
+        Please rate your level of agreement on a scale from 1 to 5, with 1 being
+        "strongly agree" and 5 being "strongly disagree"
+      </p>
+      <table>
+        <tr>
+          <th></th>
+          <th>Strongly Agree</th>
+          <th>Agree</th>
+          <th>Neutral</th>
+          <th>Disagree</th>
+          <th>Strongly Disagree</th>
+        </tr>
+        <tr>
+          <td>Do I like to watch movies</td>
+          <td><input type="radio" name="movies" value="1" /></td>
+          <td><input type="radio" name="movies" value="2" /></td>
+          <td><input type="radio" name="movies" value="3" /></td>
+          <td><input type="radio" name="movies" value="4" /></td>
+          <td><input type="radio" name="movies" value="5" /></td>
+        </tr>
+        <tr>
+          <td>Do I like listening to radio</td>
+          <td><input type="radio" name="radio" value="1" /></td>
+          <td><input type="radio" name="radio" value="2" /></td>
+          <td><input type="radio" name="radio" value="3" /></td>
+          <td><input type="radio" name="radio" value="4" /></td>
+          <td><input type="radio" name="radio" value="5" /></td>
+        </tr>
+        <tr>
+          <td>Do I like to eat out</td>
+          <td><input type="radio" name="take_out" value="1" /></td>
+          <td><input type="radio" name="take_out" value="2" /></td>
+          <td><input type="radio" name="take_out" value="3" /></td>
+          <td><input type="radio" name="take_out" value="4" /></td>
+          <td><input type="radio" name="take_out" value="5" /></td>
+        </tr>
+        <tr>
+          <td>Do I like to watch TV</td>
+          <td><input type="radio" name="tv" value="1" /></td>
+          <td><input type="radio" name="tv" value="2" /></td>
+          <td><input type="radio" name="tv" value="3" /></td>
+          <td><input type="radio" name="tv" value="4" /></td>
+          <td><input type="radio" name="tv" value="5" /></td>
+        </tr>
+      </table>
+    </div>
+    <button type="submit" id="submit">SUBMIT</button>
 
     <script type="module" src="index.js"></script>
-
-</body>
+  </body>
 </html>
