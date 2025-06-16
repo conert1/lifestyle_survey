@@ -5,6 +5,7 @@ async function displayData(){
   let youngest 
   let oldest
   let average
+  let favorite
   let pizza
   let pasta
   let wors
@@ -15,17 +16,22 @@ async function displayData(){
 
     let jsonFile = await retrieveData()
     
-
+const size = jsonFile.length;
     oldest = highestAge(jsonFile)
     youngest = lowestAge(jsonFile)
     average = averageAge(jsonFile)
-    const size = jsonFile.length;
+    favorite = favoriteFood(jsonFile, size)
+    
     console.log(jsonFile.size)
 
     document.getElementById("age").innerHTML = `${average}`
     document.getElementById("oldest").innerHTML = `${oldest}`
     document.getElementById("youngest").innerHTML = `${youngest}`
-  
+
+    document.getElementById("love_pizza").innerHTML = `${favorite[0]}`
+    document.getElementById("love_pasta").innerHTML = `${favorite[1]}`
+    document.getElementById("love_pap").innerHTML = `${favorite[2]}`
+
 
     jsonFile.forEach((jsonFile) => {
     // console.log(jsonFile.email)
@@ -154,4 +160,39 @@ function averageAge(jsonFile){
   averageCount = sum/list.length
 console.log("lowest   " + averageCount)
   return averageCount;
+}
+
+
+function favoriteFood(jsonFile, size) {
+  let fav = [];
+  let pizzaNo=0
+  let pastaNo=0
+  let worsNo=0
+  let pizzaPercentage
+  let pastaPercentage
+  let worsPercentage
+
+  jsonFile.forEach((doc) => {
+    fav.push(doc.favoriteFood)
+  });
+  let straightList = fav.flat()
+  for(let i=0; i<straightList.length; i++){
+    console.log(straightList[i])
+    if(straightList[i] == "Pizza"){
+      pizzaNo++
+    }
+    if(straightList[i] == "Pasta"){
+      pastaNo++
+    }
+    if(straightList[i] == "wors"){
+      worsNo++
+    }
+  }
+
+  pizzaPercentage = ((pizzaNo*100)/size)
+  pastaPercentage = ((pastaNo*100)/size)
+  worsPercentage = ((worsNo*100)/size)
+console.log(`pizza is ${pizzaPercentage}  pasta is ${pastaPercentage}  wors is ${worsPercentage}`)
+
+  return [pizzaPercentage, pastaPercentage, worsPercentage];
 }
