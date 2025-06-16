@@ -1,21 +1,15 @@
-import {retrieveData, sendData} from "./get_data.js"
+import {retrieveData} from "./get_data.js"
 
 async function displayData(){
-
-  let youngest 
-  let oldest
-  let average
-  let favorite
-  let hobbies
 
     let jsonFile = await retrieveData()
     
 const size = jsonFile.length;
-    oldest = highestAge(jsonFile)
-    youngest = lowestAge(jsonFile)
-    average = averageAge(jsonFile)
-    favorite = favoriteFood(jsonFile, size)
-    hobbies = averageHobbiesRating(jsonFile, size)
+    let oldest = highestAge(jsonFile)
+    let youngest = lowestAge(jsonFile)
+    let average = averageAge(jsonFile)
+    let favorite = favoriteFood(jsonFile, size)
+    let hobbies = averageHobbiesRating(jsonFile, size)
 
     document.getElementById("age").innerHTML = `${average}`
     document.getElementById("oldest").innerHTML = `${oldest}`
@@ -105,7 +99,7 @@ function averageAge(jsonFile){
     sum+=list[i]
   }
   averageCount = sum/list.length
-  return averageCount.toFixed(2);
+  return averageCount.toFixed(1);
 }
 
 
@@ -114,9 +108,6 @@ function favoriteFood(jsonFile, size) {
   let pizzaNo=0
   let pastaNo=0
   let worsNo=0
-  let pizzaPercentage
-  let pastaPercentage
-  let worsPercentage
 
   jsonFile.forEach((doc) => {
     fav.push(doc.favoriteFood)
@@ -135,10 +126,10 @@ function favoriteFood(jsonFile, size) {
     }
   }
 
-  pizzaPercentage = ((pizzaNo*100)/size)
-  pastaPercentage = ((pastaNo*100)/size)
-  worsPercentage = ((worsNo*100)/size)
-  return [pizzaPercentage.toFixed(2), pastaPercentage.toFixed(2), worsPercentage.toFixed(2)];
+  let pizzaPercentage = ((pizzaNo*100)/size)
+  let pastaPercentage = ((pastaNo*100)/size)
+  let worsPercentage = ((worsNo*100)/size)
+  return [pizzaPercentage.toFixed(1), pastaPercentage.toFixed(1), worsPercentage.toFixed(1)];
 }
 
 
@@ -166,7 +157,5 @@ function averageHobbiesRating(jsonFile, size){
     sumMovies+=Number(favMovies[i])
   }
 
-  // console.log(`tv  ${sumTV}   radio  ${sumRadio}  eat ${sumEatout}   movies  ${sumMovies}`)
-
-  return [(sumMovies/size).toFixed(2), (sumRadio/size).toFixed(2), (sumEatout/size).toFixed(2), (sumTV/size).toFixed(2)];
+  return [(sumMovies/size).toFixed(1), (sumRadio/size).toFixed(1), (sumEatout/size).toFixed(1), (sumTV/size).toFixed(1)];
 }
