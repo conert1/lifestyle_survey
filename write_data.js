@@ -16,11 +16,11 @@ async function displayData(){
     
 
     oldest = highestAge(jsonFile)
-        const size = jsonFile.length;
+    const size = jsonFile.length;
     console.log(jsonFile.size)
 
     document.getElementById("age").innerHTML = "lllllllllllllllll"
-    document.getElementById("oldest").innerHTML = "lllllllllllllllll"
+    document.getElementById("oldest").innerHTML = `${oldest}`
     document.getElementById("youngest").innerHTML = `it is ${jsonFile}`
   
 
@@ -74,12 +74,13 @@ function highestAge(jsonFile){
     jsonFile.forEach((doc) => {
       const data = doc.dateOfBirth;
       const age = parseInt(data.dateOfBirth);
-
+      console.log(doc.dateOfBirth)
       if (!isNaN(age)) {
         if (highestAge === null || age > highestAge) {
           highestAge = age;
         }
       }
     });
+    console.log(highestAge)
     return highestAge
 }
