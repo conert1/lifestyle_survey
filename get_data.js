@@ -19,7 +19,7 @@ const db = getFirestore(app);
 // Function to send data to Firestore or will create a collection
 async function sendData(name, email, phone_number, dateOfBirth, favoriteFood, movies, radio, eatOut, tv) {
   try {
-    await addDoc(collection(db, "survey_form"), {
+    await addDoc(collection(db, "survey_form1"), {
       name,
       email,
       phone_number,
@@ -40,7 +40,7 @@ async function sendData(name, email, phone_number, dateOfBirth, favoriteFood, mo
 // Function to retrieve all user documents
 async function retrieveData() {
   try {
-    const querySnapshot = await getDocs(collection(db, "survey_form"));
+    const querySnapshot = await getDocs(collection(db, "survey_form1"));
     const users = [];
 
     querySnapshot.forEach((doc) => {
