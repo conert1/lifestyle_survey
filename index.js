@@ -5,7 +5,6 @@ document.getElementById("submit").addEventListener("click", () => {
   getSelectedFoods();
 });
 
-
 // gathers the data from the form to send to the db-collection
 function getSelectedFoods() {
   const checkboxes = document.querySelectorAll('input[name="food"]:checked');
@@ -44,6 +43,17 @@ function getSelectedFoods() {
   );
 }
 
+
+//validates the date of birth
+function isValidDateOfBirth() {
+  const dobInput = document.getElementById("DOB");
+  const dobValue = new Date(dobInput.value);
+  const minDate = new Date("1900-01-01");
+  const maxDate = new Date("2020-12-31");
+
+  return dobValue >= minDate && dobValue <= maxDate;
+}
+
 // the following functions are just to make sure that the button is
 // only active once all fields have been filled out.
 
@@ -55,18 +65,22 @@ const requiredInputs = [
   document.getElementById("phone_number"),
 ];
 
+const foodCheckboxes = document.querySelectorAll('input[name="food"]');
+const radioGroups = ["movies", "radio", "take_out", "tv"];
 
 function allFieldsFilled() {
-  const foodChecked = document.querySelectorAll('input[name="food"]:checked').length > 0;
-  const requiredFilled = requiredInputs.every((input) => input.value.trim() !== "");
-  return requiredFilled && foodChecked;
+  const requiredFilled = requiredInputs.every(
+    (input) => input.value.trim() !== ""
+  );
+  const dobValid = isValidDateOfBirth();
+  const foodChecked = Array.from(foodCheckboxes).some((cb) => cb.checked);
+
+  const radiosFilled = radioGroups.every((group) => {
+    return document.querySelector(`input[name="${group}"]:checked`) !== null;
+  });
+
+  return requiredFilled && foodChecked && radiosFilled && dobValid;
 }
-
-document.querySelectorAll('input[name="food"]').forEach((checkbox) => {
-  checkbox.addEventListener("change", toggleSubmitButton);
-});
-
-
 
 function toggleSubmitButton() {
   submitBtn.disabled = !allFieldsFilled();
@@ -76,9 +90,15 @@ requiredInputs.forEach((input) => {
   input.addEventListener("input", toggleSubmitButton);
 });
 
-document.querySelectorAll('input[name="food"]').forEach((checkbox) => {
+foodCheckboxes.forEach((checkbox) => {
   checkbox.addEventListener("change", toggleSubmitButton);
 });
 
+radioGroups.forEach((group) => {
+  const radios = document.querySelectorAll(`input[name="${group}"]`);
+  radios.forEach((radio) => {
+    radio.addEventListener("change", toggleSubmitButton);
+  });
+});
 
 toggleSubmitButton();
