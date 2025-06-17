@@ -2,7 +2,7 @@
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
 import { getFirestore, collection, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
-
+// I deliberately left this info "API key" open just incase someone wants to test it out
 const firebaseConfig = {
   apiKey: "AIzaSyDC6QxfA2yUYzDKxXoc7cJ2xzy-qsG2tR0",
   authDomain: "lifestyle-survey-3df67.firebaseapp.com",
@@ -16,10 +16,10 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Function to send data to Firestore
+// Function to send data to Firestore or will create a collection
 async function sendData(name, email, phone_number, dateOfBirth, favoriteFood, movies, radio, eatOut, tv) {
   try {
-    await addDoc(collection(db, "users"), {
+    await addDoc(collection(db, "survey_form"), {
       name,
       email,
       phone_number,
@@ -40,7 +40,7 @@ async function sendData(name, email, phone_number, dateOfBirth, favoriteFood, mo
 // Function to retrieve all user documents
 async function retrieveData() {
   try {
-    const querySnapshot = await getDocs(collection(db, "users"));
+    const querySnapshot = await getDocs(collection(db, "survey_form"));
     const users = [];
 
     querySnapshot.forEach((doc) => {
